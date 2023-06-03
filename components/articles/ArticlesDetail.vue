@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <h1>{{ title }}</h1>
+        <h3> Release Date: {{ date }}</h3>
+        <p>{{ overview }}</p>
+        <p>Revenue: $ {{ revenue }}</p>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        title: {
+            type: String,
+            default: "",
+
+        },
+        date: {
+            type: String,
+            default: "",
+
+        },
+        revenue: {
+            type: String,
+            default: "",
+
+        },
+        overview: {
+            type: String,
+            default: "",
+
+        },
+
+    }
+}
+</script>
+
+<style></style>

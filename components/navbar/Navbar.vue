@@ -1,7 +1,10 @@
 <template>
     <div>
         <div class="my-header" dark elevation="0" color="#000">
-            <v-img :src="require('~/assets/images/navlogo.webp')" alt="" max-height="50" max-width="50"></v-img>
+            <nuxt-link to="/">
+                <v-img :src="require('~/assets/images/navlogo.webp')" alt="" max-height="50" max-width="50"></v-img>
+
+            </nuxt-link>
             <b-col cols="12" md="4" class="search-box">
                 <v-text-field outlined dense dark placeholder="Search" append-icon="mdi-magnify"></v-text-field>
                 <v-btn icon id="mode-switcher" @click="$vuetify.theme.dark = !$vuetify.theme.dark">
@@ -85,7 +88,7 @@ export default {
 
 
 .nav ul li {
-    margin-left: 50px;
+    margin-left: 30px;
     color: var(--textWhite);
 }
 
