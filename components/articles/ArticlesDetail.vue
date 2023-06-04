@@ -1,9 +1,12 @@
 <template>
     <div>
+
         <h1>{{ title }}</h1>
         <h3> Release Date: {{ date }}</h3>
         <p>{{ overview }}</p>
         <p>Revenue: $ {{ revenue }}</p>
+        <!-- <img :src="image" alt="" class="img-fluide"> -->
+
     </div>
 </template>
 
@@ -21,7 +24,7 @@ export default {
 
         },
         revenue: {
-            type: String,
+            type: Number,
             default: "",
 
         },
@@ -29,6 +32,10 @@ export default {
             type: String,
             default: "",
 
+        },
+        image: {
+            type: String,
+            default: "",
         },
 
     }

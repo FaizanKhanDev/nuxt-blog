@@ -1,43 +1,56 @@
 <template>
     <div>
         <div class="my-header" dark elevation="0" color="#000">
-            <nuxt-link to="/">
-                <v-img :src="require('~/assets/images/navlogo.webp')" alt="" max-height="50" max-width="50"></v-img>
+            <b-container>
+                <b-row>
+                    <b-col cols="7" md="7">
+                        <nuxt-link to="/">
+                            <v-img :src="require('~/assets/images/navlogo.webp')" alt="" max-height="50"
+                                max-width="50"></v-img>
 
-            </nuxt-link>
-            <b-col cols="12" md="4" class="search-box">
-                <v-text-field outlined dense dark placeholder="Search" append-icon="mdi-magnify"></v-text-field>
-                <v-btn icon id="mode-switcher" @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-                    <v-icon :color="isDark ? '#fff' : '#fff'">
-                        {{ isDark ? 'mdi-weather-night' : 'mdi-weather-sunny' }}
-                    </v-icon>
-                </v-btn>
-            </b-col>
+                        </nuxt-link>
+                    </b-col>
+                    <b-col cols="5" md="5" class="search-box">
+                        <v-text-field outlined dense dark placeholder="Search" append-icon="mdi-magnify"></v-text-field>
+                        <v-btn icon id="mode-switcher" @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+                            <v-icon :color="isDark ? '#fff' : '#fff'">
+                                {{ isDark ? 'mdi-weather-night' : 'mdi-weather-sunny' }}
+                            </v-icon>
+                        </v-btn>
+                    </b-col>
+                </b-row>
+
+            </b-container>
 
 
 
         </div>
 
         <v-app-bar class="nav" dense dark elevation="0" color="#913fe2">
-            <ul>
+            <b-container>
+                <b-row>
+                    <b-col cols="12">
+                        <ul class="p-0">
+                            <li>
+                                <nuxt-link to="/">Home</nuxt-link>
+                            </li>
+                            <li class="navigation-items">
+                                <nuxt-link to="/">Bookmarks</nuxt-link>
+                            </li>
+                            <li class="navigation-items">
+                                <nuxt-link to="/">Comics</nuxt-link>
+                            </li>
+                            <li class="navigation-items">
+                                <nuxt-link to="/">Recruitment</nuxt-link>
+                            </li>
+                            <li class="navigation-items">
+                                <nuxt-link to="/">Language</nuxt-link>
+                            </li>
+                        </ul>
+                    </b-col>
+                </b-row>
+            </b-container>
 
-                <li>
-                    <nuxt-link to="/">Home</nuxt-link>
-                </li>
-
-                <li>
-                    <nuxt-link to="/">Bookmarks</nuxt-link>
-                </li>
-                <li>
-                    <nuxt-link to="/">Comics</nuxt-link>
-                </li>
-                <li>
-                    <nuxt-link to="/">Recruitment</nuxt-link>
-                </li>
-                <li>
-                    <nuxt-link to="/">Language</nuxt-link>
-                </li>
-            </ul>
         </v-app-bar>
     </div>
 </template>
@@ -64,8 +77,9 @@ export default {
 }
 
 .search-box {
-    height: 60px;
     display: flex;
+    padding: 17px;
+    height: 60px;
 }
 
 #mode-switcher {
@@ -78,7 +92,6 @@ export default {
 } */
 
 .nav ul {
-    padding: 0 2rem;
     display: flex;
     list-style-type: none;
     align-items: center;
@@ -88,8 +101,12 @@ export default {
 
 
 .nav ul li {
-    margin-left: 30px;
     color: var(--textWhite);
+}
+
+.navigation-items {
+
+    margin-left: 30px;
 }
 
 .nav ul li a {
