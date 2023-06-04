@@ -1,25 +1,8 @@
 {
-  "articles": [
+  "article": [
     {
-      "title": "developer",
-      "date": "2023-06-01",
-      "overview": "This is the overview of Article 1.",
-      "revenue": 100000,
-      "image": "https://via.placeholder.com/500x500?text=Image+3"
-    },
-    {
-        "title": "nuxtjs",
-        "date": "2023-06-02",
-        "overview": "This is the overview of Article 2.",
-        "revenue": 150000,
-        "image": "https://via.placeholder.com/500x500?text=Image+3"
-    },
-    {
-        "title": "apolloclient",
-        "date": "2023-06-03",
-        "overview": "This is the overview of Article 3.",
-        "revenue": 200000,
-        "image": "https://via.placeholder.com/500x500?text=Image+3"
+      "title": "developer"
     }
+    
   ]
 }

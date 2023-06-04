@@ -12,6 +12,7 @@
     </b-container>
 
 
+
   </div>
 </template>
   
@@ -21,20 +22,44 @@ import ArticlesDetail from "@/components/articles/ArticlesDetail.vue";
 export default {
   name: 'IndexPage',
   componets: {
-    ArticlesDetail
+    ArticlesDetail,
+
 
   },
   data() {
     return {
       articlesData: null,
+      searchTerm: "",
+
+
 
     }
   },
   async fetch() {
     this.articlesData = await fetch(
-      "http://localhost:3000/articles"
+      "http://localhost:30001/articles"
     ).then((res) => res.json())
   },
+
+  // async fetch() {
+  //   this.articlesData = await fetch(
+  //     "http://localhost:30001/articles?search=" + this.searchTerm
+  //   ).then((res) => res.json());
+  // },
+  // computed: {
+  //   filteredArticles() {
+  //     if (!this.articlesData) {
+  //       return [];
+  //     }
+  //     return this.articlesData.filter((article) => {
+  //       const searchRegex = new RegExp(this.searchTerm, "i");
+  //       return (
+  //         article.title.match(searchRegex) ||
+  //         article.overview.match(searchRegex)
+  //       );
+  //     });
+  //   }
+  // },
   mounted() {
 
   },

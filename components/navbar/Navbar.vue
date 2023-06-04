@@ -113,7 +113,9 @@ export default {
     data() {
         return {
             navDrawer: false,
+            searchTerm: "",
         };
+
     },
     computed: {
         isDark() {
