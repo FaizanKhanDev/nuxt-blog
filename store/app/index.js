@@ -1,30 +1,30 @@
 // store/articles.js
 
 const state = () => ({
-    titles: []
+    articles: []
 });
 
 const mutations = {
-    init(state, titles) {
-        state.titles = titles
+    init(state, articles) {
+        state.titles = articles
     },
     add(state, initem) {
-        state.titles = [...state.titles, initem]
+        state.articles = [...state.articles, initem]
     }
 
 };
 
 const actions = {
-    async add({ commit }, article) {
+    async add({ commit }, articleData) {
         console.log("actions is Fired")
         try {
-            const response = await fetch("http://localhost:30001/article", {
+            const response = await fetch("http://localhost:30001/articles", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
 
                 },
-                body: JSON.stringify({ article })
+                body: JSON.stringify({ articleData })
             })
             const data = await response.json()
             commit('add', data)

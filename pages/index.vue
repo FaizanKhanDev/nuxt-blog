@@ -3,9 +3,9 @@
     <b-container>
       <b-row>
         <b-col cols="12" md="4" v-for="(article, i ) in articlesData" :key="i">
-          <nuxt-link :to="`articles/${article.title}`">
-            <ArticlesDetail :title="article.title" :date="article.date" :revenue="article.revenue"
-              :overview="article.overview" :image="article.image" />
+          <nuxt-link :to="`articles/${article.articleData.title}`">
+            <ArticlesDetail :title="article.articleData.title" :date="article.articleData.date"
+              :overview="article.articleData.overview" :content="article.articleData.content" />
           </nuxt-link>
         </b-col>
       </b-row>
@@ -29,9 +29,6 @@ export default {
   data() {
     return {
       articlesData: null,
-      searchTerm: "",
-
-
 
     }
   },
@@ -39,8 +36,9 @@ export default {
     this.articlesData = await fetch(
       "http://localhost:30001/articles"
     ).then((res) => res.json())
-  },
+    console.log(this.articlesData)
 
+  },
   // async fetch() {
   //   this.articlesData = await fetch(
   //     "http://localhost:30001/articles?search=" + this.searchTerm
@@ -61,7 +59,6 @@ export default {
   //   }
   // },
   mounted() {
-
   },
   computed: {
 
