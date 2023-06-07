@@ -36,7 +36,7 @@ export default {
     this.articlesData = await fetch(
       "http://localhost:30001/articles"
     ).then((res) => res.json())
-    console.log(this.articlesData)
+    // console.log(this.articlesData)
 
   },
   // async fetch() {
