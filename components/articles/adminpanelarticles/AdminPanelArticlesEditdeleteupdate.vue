@@ -1,7 +1,18 @@
 <template>
     <div>
         <v-container>
-            <v-row class="album p-1">
+            <v-row class="album p-1" v-if="skeletonLoader">
+                <template>
+                    <v-col cols="12" md="4" v-for="i in 6" :key="i">
+                        <v-sheet :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`" class="pa-3">
+                            <v-skeleton-loader type="card-avatar, article, actions"></v-skeleton-loader>
+                        </v-sheet>
+                    </v-col>
+
+
+                </template>
+            </v-row>
+            <v-row class="album p-1" v-else>
                 <template>
                     <v-col cols="12" md="4" v-for="(data, index) in articlesData" :key="index">
                         <v-card class="mx-auto">
@@ -14,9 +25,31 @@
                             <v-card-text>{{ data.articleData.overview }}</v-card-text>
                             <v-card-actions class="justify-space-between">
                                 <v-btn-toggle dense>
-                                    <v-btn text>Read now</v-btn>
-                                    <v-btn text>Share</v-btn>
-                                    <v-btn text>Share</v-btn>
+                                    <v-btn text>Read</v-btn>
+                                    <v-btn text>Update</v-btn>
+                                    <!-- <v-btn text @click="deleted(data)">Delete</v-btn> -->
+                                    <v-dialog v-model="dialog" persistent max-width="290">
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-btn text v-bind="attrs" v-on="on">
+                                                Delete
+                                            </v-btn>
+                                        </template>
+                                        <v-card>
+                                            <v-card-title class="text-h5">
+                                                Are You Sure to delete it?
+                                            </v-card-title>
+
+                                            <v-card-actions>
+                                                <v-spacer></v-spacer>
+                                                <v-btn color="green darken-1" text @click="dialog = false">
+                                                    cancel
+                                                </v-btn>
+                                                <v-btn color="green darken-1" text @click="deleted(data)">
+                                                    Agree
+                                                </v-btn>
+                                            </v-card-actions>
+                                        </v-card>
+                                    </v-dialog>
                                 </v-btn-toggle>
                                 <div class="overline">Date:{{ data.articleData.date }}</div>
                             </v-card-actions>
@@ -37,34 +70,56 @@
                         </v-card>
                     </v-col>
                 </template>
+
             </v-row>
+
         </v-container>
     </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 export default {
     data() {
         return {
             articlesData: null,
+            skeletonLoader: false,
+
+
 
         };
 
 
     },
-    methods: {
-        share(id) {
-            alert("share id: " + id);
+    inject: {
+        theme: {
+            default: { isDark: false },
         },
+    },
+    methods: {
+        hideSkeletonLoader() {
+            setTimeout(() => {
+                this.skeletonLoader = false;
+            }, 1000);
+        },
+        ...mapActions("app", ["deleted", "setDialog"]),
+
+    },
+    mounted() {
+        this.hideSkeletonLoader();
+
+    },
+    computed: {
+        ...mapState("app", ['dialog']),
     },
     async fetch() {
         this.articlesData = await fetch(
             "http://localhost:30001/articles"
         ).then((res) => res.json())
-        console.log(this.articlesData)
 
     },
-};
+
+}
 </script>
 
 <style scoped>
