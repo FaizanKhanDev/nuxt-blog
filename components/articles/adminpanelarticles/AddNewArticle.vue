@@ -2,6 +2,19 @@
     <b-container>
         <b-row>
             <b-col cols="6" class="add-new-articles">
+                <div v-if="successMessage">
+                    <v-card disabled loading elevation="0">
+                        <v-alert type="info">
+                            <div class="text--h6">
+                                Your Article has been added
+                            </div>
+
+                        </v-alert>
+
+                    </v-card>
+
+
+                </div>
                 <h1 class="text-center">Add New Article</h1>
                 <v-form action="" @submit.prevent="addArticles" v-model="valid">
                     <v-text-field :rules="errorRules" outlined label="title" v-model="title"></v-text-field>
@@ -15,7 +28,7 @@
                             <v-btn text color="primary" @click="modal = false">
                                 Cancel
                             </v-btn>
-                            <v-btn text color="primary" @click="$refs.dialog.save(date)">
+                            <v-btn color="primary" @click="$refs.dialog.save(date)">
                                 OK
                             </v-btn>
                         </v-date-picker>
@@ -40,6 +53,7 @@ export default {
     data() {
         return {
             valid: false,
+            successMessage: false,
             title: "",
             overview: "",
             content: "",
@@ -64,6 +78,11 @@ export default {
                 overview: this.overview,
                 content: this.content,
             };
+            this.successMessage = true
+            setTimeout(() => {
+                this.successMessage = false
+
+            }, 2000)
             this.add(articleData);
             this.title = "";       // Reset title field
             this.date = "";        // Reset date field   // Reset revenue field
@@ -82,5 +101,9 @@ export default {
 
 .add-new-articles h1 {
     margin-bottom: 5rem;
+}
+
+.my-progress-bar {
+    top: 19px !important;
 }
 </style>

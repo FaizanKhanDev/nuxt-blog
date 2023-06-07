@@ -15,7 +15,8 @@
                             <v-card-actions class="justify-space-between">
                                 <v-btn-toggle dense>
                                     <v-btn text>Read now</v-btn>
-                                    <v-btn text @click="share(post.id)">Share</v-btn>
+                                    <v-btn text>Share</v-btn>
+                                    <v-btn text>Share</v-btn>
                                 </v-btn-toggle>
                                 <div class="overline">Date:{{ data.articleData.date }}</div>
                             </v-card-actions>
