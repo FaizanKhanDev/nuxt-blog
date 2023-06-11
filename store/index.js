@@ -11,10 +11,15 @@ const store = () => new Vuex.Store({
         'app': AppModule,
     },
     state: {
-
+        obj: {
+            message: "khan"
+        }
     },
-    mutations: {
 
+    mutations: {
+        updateMessage(state, message) {
+            state.obj.message = message
+        }
     },
     actions: {
 

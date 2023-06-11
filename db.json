@@ -2,10 +2,10 @@
   "articles": [
     {
       "articleData": {
-        "title": "vue.runtime.esm.js:4605 [Vue warn]: Computed property \"dialog\" was assigned to but it has no setter.  found in  ---> <ArticlesAdminpanelarticlesAdminPanelArticlesEditdeleteupdate> at components/articles/adminpanelarticles/AdminPanelArticlesEditdeleteupdate.vue        <Pages/adminpanel/viewallarticles.vue> at pages/adminpanel/viewallarticles.vue          <VApp>            <Pages/adminpanel.vue> at pages/adminpanel.vue              <Nuxt>                <VApp>                  <DefaultLayout> at layouts/adminLayout.vue                    <Root>",
-        "date": "2023-06-10",
-        "overview": "vue.runtime.esm.js:4605 [Vue warn]: Computed property \"dialog\" was assigned to but it has no setter.  found in  ---> <ArticlesAdminpanelarticlesAdminPanelArticlesEditdeleteupdate> at components/articles/adminpanelarticles/AdminPanelArticlesEditdeleteupdate.vue        <Pages/adminpanel/viewallarticles.vue> at pages/adminpanel/viewallarticles.vue          <VApp>            <Pages/adminpanel.vue> at pages/adminpanel.vue              <Nuxt>                <VApp>                  <DefaultLayout> at layouts/adminLayout.vue                    <Root>",
-        "content": "vue.runtime.esm.js:4605 [Vue warn]: Computed property \"dialog\" was assigned to but it has no setter.\n\nfound in\n\n---> <ArticlesAdminpanelarticlesAdminPanelArticlesEditdeleteupdate> at components/articles/adminpanelarticles/AdminPanelArticlesEditdeleteupdate.vue\n       <Pages/adminpanel/viewallarticles.vue> at pages/adminpanel/viewallarticles.vue\n         <VApp>\n           <Pages/adminpanel.vue> at pages/adminpanel.vue\n             <Nuxt>\n               <VApp>\n                 <DefaultLayout> at layouts/adminLayout.vue\n                   <Root>vue.runtime.esm.js:4605 [Vue warn]: Computed property \"dialog\" was assigned to but it has no setter.\n\nfound in\n\n---> <ArticlesAdminpanelarticlesAdminPanelArticlesEditdeleteupdate> at components/articles/adminpanelarticles/AdminPanelArticlesEditdeleteupdate.vue\n       <Pages/adminpanel/viewallarticles.vue> at pages/adminpanel/viewallarticles.vue\n         <VApp>\n           <Pages/adminpanel.vue> at pages/adminpanel.vue\n             <Nuxt>\n               <VApp>\n                 <DefaultLayout> at layouts/adminLayout.vue\n                   <Root>"
+        "title": "data",
+        "date": "2023-06-07",
+        "overview": "data",
+        "content": "data"
       },
       "id": 1
     }

@@ -10,13 +10,17 @@
         </b-col>
       </b-row>
     </b-container>
-
+    <v-form>
+      <input type="text" @input="updateMessage" v-model="obj.message">
+      {{ obj.message }}
+    </v-form>
 
 
   </div>
 </template>
   
 <script>
+import { mapState } from "vuex";
 import ArticlesDetail from "@/components/articles/ArticlesDetail.vue";
 
 export default {
@@ -29,7 +33,16 @@ export default {
   data() {
     return {
       articlesData: null,
+      obj: {
+        message: "faizan"
+      }
 
+    }
+  },
+  methods: {
+    updateMessage(e) {
+      this.$store.commit('updateMessage', e.target.value)
+      console.log(e.target.value)
     }
   },
   async fetch() {
@@ -61,7 +74,9 @@ export default {
   mounted() {
   },
   computed: {
-
+    ...mapState({
+      message: state => state.obj.message
+    })
   },
 
 

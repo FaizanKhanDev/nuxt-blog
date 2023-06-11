@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-navigation-drawer v-model="navDrawer" app class="my-navigation-drawer">
+        <v-navigation-drawer v-model="navDrawer" temporary app class="my-navigation-drawer">
             <v-list nav dense>
                 <v-list-item-group active-class="deep-purple--text text--accent-4">
                     <v-list-item-avatar size="56" class="navigation-drawer-icon">

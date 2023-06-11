@@ -2,7 +2,8 @@
 
 const state = () => ({
     articles: [],
-    dialog: false,
+
+
 });
 
 const mutations = {
@@ -15,9 +16,9 @@ const mutations = {
     deleted(state, data) {
         state.articles = state.articles.filter(t => t.id !== data.id)
     },
-    setDialog(state, payload) {
-        state.dialog = payload;
-    }
+
+
+
 
 };
 
@@ -28,13 +29,12 @@ const actions = {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
-
                 },
                 body: JSON.stringify({ articleData })
             })
             const data = await response.json()
             commit('add', data)
-            commit('setDialog', false)
+
         } catch (error) {
             console.log("================= error ==============", error)
         }
@@ -46,6 +46,9 @@ const actions = {
                 method: "DELETE"
             });
             commit("deleted", data);
+
+
+
             console.log("delete mutation is fired");
         } catch (error) {
             console.log("================= error ==============", error);

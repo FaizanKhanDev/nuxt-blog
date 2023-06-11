@@ -21,14 +21,14 @@
                                     src="https://images.pexels.com/photos/2944537/pexels-photo-2944537.jpeg?">
                                 </v-img>
                             </div>
+
                             <v-card-title>{{ data.articleData.title }}</v-card-title>
                             <v-card-text>{{ data.articleData.overview }}</v-card-text>
                             <v-card-actions class="justify-space-between">
                                 <v-btn-toggle dense>
                                     <v-btn text>Read</v-btn>
                                     <v-btn text>Update</v-btn>
-                                    <!-- <v-btn text @click="deleted(data)">Delete</v-btn> -->
-                                    <v-dialog v-model="dialog" persistent max-width="290">
+                                    <v-dialog ref="deleteDialog" v-model="isActive" persistent max-width="290">
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-btn text v-bind="attrs" v-on="on">
                                                 Delete
@@ -38,10 +38,9 @@
                                             <v-card-title class="text-h5">
                                                 Are You Sure to delete it?
                                             </v-card-title>
-
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
-                                                <v-btn color="green darken-1" text @click="dialog = false">
+                                                <v-btn color="green darken-1" text>
                                                     cancel
                                                 </v-btn>
                                                 <v-btn color="green darken-1" text @click="deleted(data)">
@@ -70,22 +69,28 @@
                         </v-card>
                     </v-col>
                 </template>
-
             </v-row>
 
         </v-container>
+
     </div>
 </template>
-
+                
 <script>
+
+
 import { mapActions, mapState } from 'vuex';
 export default {
+    components: {
+
+    },
     data() {
         return {
             articlesData: null,
             skeletonLoader: false,
-
-
+            dialog: false,
+            isActive: false,
+            data: null,
 
         };
 
@@ -97,21 +102,39 @@ export default {
         },
     },
     methods: {
+        openDialog() {
+            this.$refs.deleteDialog.open()
+        },
+        deleted(data) {
+            this.isActive = false;
+            this.$store.dispatch('app/deleted', data);
+        },
+        open() {
+            this.isActive = true
+        },
         hideSkeletonLoader() {
             setTimeout(() => {
                 this.skeletonLoader = false;
             }, 1000);
         },
-        ...mapActions("app", ["deleted", "setDialog"]),
+        // ...mapActions("app", ["deleted"]),
+
+
+
+
+    },
+    computed: {
+        ...mapState('app', ['articles']),
+
+    },
+    watch: {
+
 
     },
     mounted() {
         this.hideSkeletonLoader();
+    },
 
-    },
-    computed: {
-        ...mapState("app", ['dialog']),
-    },
     async fetch() {
         this.articlesData = await fetch(
             "http://localhost:30001/articles"

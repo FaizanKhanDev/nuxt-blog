@@ -34,8 +34,8 @@
                         </v-date-picker>
                     </v-dialog>
                     <v-text-field outlined label="overview" v-model="overview" :rules="errorRules"></v-text-field>
-                    <!-- <ckeditor :editor="editor" v-model="content" :config="editorConfig"></ckeditor> -->
-                    <v-textarea :rules="errorRules" v-model="content" label="description"></v-textarea>
+                    <!-- <ckeditor :editor="editor" v-model="editorData"></ckeditor> -->
+                    <v-textarea :rules="errorRules" v-model="content" label="description"></v-textarea> -->
                     <v-btn :disabled="!valid" type="submit">Add Article</v-btn>
                 </v-form>
             </b-col>
@@ -50,8 +50,12 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
     name: "AddNewArticle",
+    components: {
+        // ckeditor: CKEditor.component
+    },
     data() {
         return {
+            editorData: "",
             valid: false,
             successMessage: false,
             title: "",
@@ -59,6 +63,11 @@ export default {
             content: "",
             date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
             modal: false,
+            // editor: ClassicEditor,
+            // editorData: 'Content of the editor.',
+            // editorConfig: {
+            //     // The configuration of the editor.
+            // },
             errorRules: [
                 (v) => !!v || "Required"
             ]
