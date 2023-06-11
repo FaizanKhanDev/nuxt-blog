@@ -2,12 +2,63 @@
   "articles": [
     {
       "articleData": {
-        "title": "data",
-        "date": "2023-06-07",
-        "overview": "data",
-        "content": "data"
+        "file": "https://images.pexels.com/photos/1929611/pexels-photo-1929611.jpeg",
+        "title": "Funny Story",
+        "date": "2023-06-11",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Funny Story placeholder.",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Funny Story placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Funny Story placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Funny Story placeholder."
       },
       "id": 1
+    },
+    {
+      "articleData": {
+        "file": "https://images.pexels.com/photos/3737094/pexels-photo-3737094.jpeg",
+        "title": "Top 10 Websites",
+        "date": "2023-06-11",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder.",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder."
+      },
+      "id": 2
+    },
+    {
+      "articleData": {
+        "file": "https://images.pexels.com/photos/3711348/pexels-photo-3711348.jpeg?",
+        "title": "Easy Skate tricks",
+        "date": "2023-06-11",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholder",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholderThis is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholderThis is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholder"
+      },
+      "id": 3
+    },
+    {
+      "articleData": {
+        "file": "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "title": "Rooftop places",
+        "date": "2023-06-11",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Rooftop places placeholder.",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Rooftop places placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Rooftop places placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Rooftop places placeholder."
+      },
+      "id": 4
+    },
+    {
+      "articleData": {
+        "file": "https://images.pexels.com/photos/2952834/pexels-photo-2952834.jpeg?",
+        "title": "Top 10 Clubs",
+        "date": "2023-06-11",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Clubs placeholder.",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Clubs placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Clubs placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Clubs placeholder."
+      },
+      "id": 5
+    },
+    {
+      "articleData": {
+        "file": "https://images.pexels.com/photos/1482476/pexels-photo-1482476.jpeg?",
+        "title": "Top 5 Member",
+        "date": "2023-06-11",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 5 Member placeholder.",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 5 Member placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 5 Member placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 5 Member placeholder."
+      },
+      "id": 6
     }
   ]
 }

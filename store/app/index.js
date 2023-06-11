@@ -16,15 +16,12 @@ const mutations = {
     deleted(state, data) {
         state.articles = state.articles.filter(t => t.id !== data.id)
     },
-
-
-
-
 };
 
 const actions = {
     async add({ commit }, articleData) {
         try {
+
             const response = await fetch("http://localhost:30001/articles", {
                 method: "POST",
                 headers: {
@@ -46,9 +43,6 @@ const actions = {
                 method: "DELETE"
             });
             commit("deleted", data);
-
-
-
             console.log("delete mutation is fired");
         } catch (error) {
             console.log("================= error ==============", error);

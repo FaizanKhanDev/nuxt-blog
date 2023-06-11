@@ -10,6 +10,16 @@
 
 }
 
+a {
+    text-decoration: none !important;
+
+}
+
+a:hover {
+    text-decoration: none !important;
+
+}
+
 .my-navigation-drawer a {
     text-decoration: none;
 }

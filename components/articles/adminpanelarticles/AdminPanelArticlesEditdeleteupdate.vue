@@ -17,14 +17,13 @@
                     <v-col cols="12" md="4" v-for="(data, index) in articlesData" :key="index">
                         <v-card class="mx-auto">
                             <div class="hover-wrapper">
-                                <v-img height="250" eager position="center center"
-                                    src="https://images.pexels.com/photos/2944537/pexels-photo-2944537.jpeg?">
+                                <v-img height="250" eager position="center center" :src="data.articleData.file">
                                 </v-img>
+                                <!-- <img :src="data.articleData.file"> -->
                             </div>
-
                             <v-card-title>{{ data.articleData.title }}</v-card-title>
                             <v-card-text>{{ data.articleData.overview }}</v-card-text>
-                            <v-card-actions class="justify-space-between">
+                            <v-card-actions class=" justify-space-between">
                                 <v-btn-toggle dense>
                                     <v-btn text>Read</v-btn>
                                     <v-btn text>Update</v-btn>
@@ -70,7 +69,6 @@
                     </v-col>
                 </template>
             </v-row>
-
         </v-container>
 
     </div>
@@ -87,14 +85,11 @@ export default {
     data() {
         return {
             articlesData: null,
-            skeletonLoader: false,
+            skeletonLoader: true,
             dialog: false,
             isActive: false,
             data: null,
-
         };
-
-
     },
     inject: {
         theme: {
@@ -117,29 +112,19 @@ export default {
                 this.skeletonLoader = false;
             }, 1000);
         },
-        // ...mapActions("app", ["deleted"]),
-
-
-
-
     },
     computed: {
         ...mapState('app', ['articles']),
-
     },
     watch: {
-
-
     },
     mounted() {
         this.hideSkeletonLoader();
     },
-
     async fetch() {
         this.articlesData = await fetch(
             "http://localhost:30001/articles"
         ).then((res) => res.json())
-
     },
 
 }

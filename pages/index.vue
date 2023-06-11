@@ -1,21 +1,25 @@
 <template>
   <div>
-    <b-container>
-      <b-row>
-        <b-col cols="12" md="4" v-for="(article, i ) in articlesData" :key="i">
+    <v-container>
+      <v-row class="album p-1" v-if="skeletonLoader">
+        <template>
+          <v-col cols="12" md="4" v-for="i in 10" :key="i">
+            <v-sheet :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`" class="pa-3">
+              <v-skeleton-loader type="card-avatar, article, actions"></v-skeleton-loader>
+            </v-sheet>
+          </v-col>
+        </template>
+      </v-row>
+      <v-row class="album p-1" v-else>
+        <v-col v-for="(article, i ) in articlesData" :key="i" cols="12" md="4">
           <nuxt-link :to="`articles/${article.articleData.title}`">
-            <ArticlesDetail :title="article.articleData.title" :date="article.articleData.date"
-              :overview="article.articleData.overview" :content="article.articleData.content" />
+            <ArticlesDetail :image="article.articleData.file" :title="article.articleData.title"
+              :date="article.articleData.date" :overview="article.articleData.overview"
+              :content="article.articleData.content" />
           </nuxt-link>
-        </b-col>
-      </b-row>
-    </b-container>
-    <v-form>
-      <input type="text" @input="updateMessage" v-model="obj.message">
-      {{ obj.message }}
-    </v-form>
-
-
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
   
@@ -33,16 +37,25 @@ export default {
   data() {
     return {
       articlesData: null,
-      obj: {
-        message: "faizan"
-      }
+      skeletonLoader: true,
+
 
     }
   },
+  inject: {
+    theme: {
+      default: { isDark: false },
+    },
+  },
   methods: {
-    updateMessage(e) {
-      this.$store.commit('updateMessage', e.target.value)
-      console.log(e.target.value)
+    // updateMessage(e) {
+    //   this.$store.commit('updateMessage', e.target.value)
+    //   console.log(e.target.value)
+    // }
+    hideSkeletonLoading() {
+      setTimeout(() => {
+        this.skeletonLoader = false
+      }, 1000)
     }
   },
   async fetch() {
@@ -72,11 +85,12 @@ export default {
   //   }
   // },
   mounted() {
+    this.hideSkeletonLoading()
   },
   computed: {
-    ...mapState({
-      message: state => state.obj.message
-    })
+    // ...mapState({
+    //   message: state => state.obj.message
+    // })
   },
 
 
