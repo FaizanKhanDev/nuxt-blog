@@ -8,8 +8,6 @@
                             <v-skeleton-loader type="card-avatar, article, actions"></v-skeleton-loader>
                         </v-sheet>
                     </v-col>
-
-
                 </template>
             </v-row>
             <v-row class="album p-1" v-else>
@@ -19,14 +17,13 @@
                             <div class="hover-wrapper">
                                 <v-img height="250" eager position="center center" :src="data.articleData.file">
                                 </v-img>
-                                <!-- <img :src="data.articleData.file"> -->
                             </div>
                             <v-card-title>{{ data.articleData.title }}</v-card-title>
                             <v-card-text>{{ data.articleData.overview }}</v-card-text>
                             <v-card-actions class=" justify-space-between">
                                 <v-btn-toggle dense>
-                                    <v-btn text>Read</v-btn>
-                                    <v-btn text>Update</v-btn>
+                                    <v-btn :to="`/articles/${data.id}`" text>Read</v-btn>
+                                    <v-btn text :to="`/adminpanel/${data.id}`">Edit</v-btn>
                                     <v-dialog ref="deleteDialog" v-model="isActive" persistent max-width="290">
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-btn text v-bind="attrs" v-on="on">
@@ -70,7 +67,6 @@
                 </template>
             </v-row>
         </v-container>
-
     </div>
 </template>
                 
@@ -78,14 +74,18 @@
 
 
 import { mapActions, mapState } from 'vuex';
+import ArticlesDetail from "@/components/articles/ArticlesDetail.vue";
 export default {
     components: {
+
+        ArticlesDetail,
+
 
     },
     data() {
         return {
             articlesData: null,
-            skeletonLoader: true,
+            skeletonLoader: false,
             dialog: false,
             isActive: false,
             data: null,
@@ -106,6 +106,9 @@ export default {
         },
         open() {
             this.isActive = true
+        },
+        updated(data) {
+            this.$store.dispatch('app/updated', data)
         },
         hideSkeletonLoader() {
             setTimeout(() => {

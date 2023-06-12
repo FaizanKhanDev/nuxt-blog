@@ -1,30 +1,21 @@
 <template>
     <div>
-        <v-row>
-            <v-col cols="12" md="6">
-                <div class="hover-wrapper">
-                    <v-img height="250" eager position="" :src="image"></v-img>
-                </div>
-            </v-col>
-            <v-col cols="12" md="6">
-                <v-card class="mx-auto">
-                    <v-card-title>{{ title }}</v-card-title>
-                    <v-card-text>{{ overview }} </v-card-text>
-                    <v-card-text>{{ content }} </v-card-text>
-                    <v-card-text>Date: {{ date }}</v-card-text>
-                    <v-divider class="mt-3"></v-divider>
-                </v-card>
-            </v-col>
-        </v-row>
-
-
+        <v-card class="mx-auto">
+            <div class="hover-wrapper">
+                <v-img height="250" eager position="center center" :src="image"></v-img>
+            </div>
+            <v-card-title>{{ title }}</v-card-title>
+            <v-card-text>{{ overview }} <h6>read more...</h6> </v-card-text>
+            <v-card-text>Date: {{ date }}</v-card-text>
+            <v-divider class="mt-3"></v-divider>
+        </v-card>
     </div>
 </template>
 
 <script>
 
 export default {
-    name: "ArticlesDetail",
+    name: "Articles",
     data() {
         return {
 

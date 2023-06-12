@@ -12,8 +12,9 @@
       </v-row>
       <v-row class="album p-1" v-else>
         <v-col v-for="(article, i ) in articlesData" :key="i" cols="12" md="4">
-          <nuxt-link :to="`articles/${article.articleData.title}`">
-            <ArticlesDetail :image="article.articleData.file" :title="article.articleData.title"
+          <!-- <nuxt-link :to="`articles/${article.articleData.title}`"> -->
+          <nuxt-link :to="`articles/${article.id}`">
+            <Articles :image="article.articleData.file" :title="article.articleData.title"
               :date="article.articleData.date" :overview="article.articleData.overview"
               :content="article.articleData.content" />
           </nuxt-link>
@@ -25,12 +26,12 @@
   
 <script>
 import { mapState } from "vuex";
-import ArticlesDetail from "@/components/articles/ArticlesDetail.vue";
+import Articles from "@/components/articles/Articles.vue";
 
 export default {
   name: 'IndexPage',
   componets: {
-    ArticlesDetail,
+    Articles,
 
 
   },
