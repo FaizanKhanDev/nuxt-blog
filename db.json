@@ -2,23 +2,13 @@
   "articles": [
     {
       "articleData": {
-        "file": "https://images.pexels.com/photos/3737094/pexels-photo-3737094.jpeg",
-        "title": "Top 10 Websites",
-        "date": "2023-06-11",
-        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder.",
-        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder.This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Top 10 Websites placeholder."
+        "file": "https://images.pexels.com/photos/3711348/pexels-photo-3711348.jpeg?",
+        "title": "Easy Skate trick",
+        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholder",
+        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholderThis is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholderThis is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholder",
+        "date": "2023-06-11"
       },
       "id": 1
-    },
-    {
-      "articleData": {
-        "file": "https://images.pexels.com/photos/3711348/pexels-photo-3711348.jpeg?",
-        "title": "Easy Skate tricks",
-        "date": "2023-06-11",
-        "overview": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholder",
-        "content": "This is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholderThis is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholderThis is a preview text from a super interesting article about a topic. There are many good reasons to read this article. It is a Easy Skate tricks placeholder"
-      },
-      "id": 2
     },
     {
       "articleData": {

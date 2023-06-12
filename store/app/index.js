@@ -16,13 +16,12 @@ const mutations = {
     deleted(state, data) {
         state.articles = state.articles.filter(t => t.id !== data.id)
     },
-    updated(state, updatedData) {
-        const index = state.articles.findIndex(articles => articles.id === updatedData);
+    updateArticle(state, articleData) {
+        const index = state.articles.findIndex(article => article.id === articleData.id)
         if (index !== -1) {
-            state.articles[index] = updatedData;
-
+            state.articles[index] = articleData
         }
-    }
+    },
 };
 
 const actions = {
@@ -55,35 +54,29 @@ const actions = {
             console.log("================= error ==============", error);
         }
     },
-    async updated({ commit }, data) {
-        console.log("updated Action is Fired");
-        try {
-            const response = await fetch(`http://localhost:30001/articles/${data.id}`, {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ data })
-            });
-            if (!response.ok) {
-                throw new Error("Error While updating Data")
-            }
-            const updatedData = await response.json()
-            commit('updated', updatedData)
+    async updateArticle({ commit }, articleData) {
+        const response = await fetch(`http://localhost:30001/articles/${articleData.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ articleData }),
+        })
+        if (response.ok) {
+            commit('updateArticle', articleData)
+        } else {
+            // Handle error when updating the article
+            console.error('Failed to update the article')
         }
-        catch (error) {
-            console.log(error)
-        }
-
-    }
+    },
 
 }
 
 
 const getters = {
-    getArtilceId: (state) => (id) => {
-        return state.articles.find(articles => articles.id === id)
-    }
+    // getArtilceId: (state) => (id) => {
+    //     return state.articles.find(articles => articles.id === id)
+    // }
 };
 
 export default {
