@@ -15,6 +15,10 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+# How to Run the API link/Get the API Link
+
+$ json-server --watch db.json --port 30001 
+ <h1> Run the db.json file on 30001 Port then you Will get the API data in your Ui App
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
