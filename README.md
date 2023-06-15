@@ -1,5 +1,5 @@
 # nuxt-blog
-
+## Before Setup This App Please Read this File Carefully
 ## Build Setup
 
 ```bash
