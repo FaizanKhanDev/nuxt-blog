@@ -13,9 +13,11 @@ const mutations = {
     add(state, initem) {
         state.articles = [...state.articles, initem]
     },
+
     deleted(state, data) {
         state.articles = state.articles.filter(t => t.id !== data.id)
     },
+
     updateArticle(state, articleData) {
         const index = state.articles.findIndex(article => article.id === articleData.id)
         if (index !== -1) {
