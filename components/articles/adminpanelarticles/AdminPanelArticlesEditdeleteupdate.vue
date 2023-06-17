@@ -12,7 +12,7 @@
             </v-row>
             <v-row class="album p-1" v-else>
                 <template>
-                    <v-col cols="12" md="4" v-for="(data, index) in articlesData" :key="index">
+                    <v-col cols="12" md="4" v-for="(data, index) in articles" :key="index">
                         <v-card class="mx-auto">
                             <div class="hover-wrapper">
                                 <v-img height="250" eager position="center center" :src="data.articleData.file">
@@ -36,7 +36,7 @@
                                             </v-card-title>
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
-                                                <v-btn color="green darken-1" text>
+                                                <v-btn color="green darken-1" text @click="cancelDeleted">
                                                     cancel
                                                 </v-btn>
                                                 <v-btn color="green darken-1" text @click="deleted(data)">
@@ -115,14 +115,40 @@ export default {
                 this.skeletonLoader = false;
             }, 1000);
         },
+        ...mapActions("app", ["view", "fetchArticles"]),
+        viewData() {
+            // this.view()
+            this.fetchArticles()
+            console.log("Articles data is called")
+        },
+        cancelDeleted() {
+            this.isActive = false
+        }
+
     },
-    computed: {
+    created() {
+
+    },
+    computed:
+    {
         ...mapState('app', ['articles']),
     },
     watch: {
     },
     mounted() {
+        this.viewData()
+        // this.fetchArticles(); // Fetch initial data
+        // // Start polling every 5 seconds (adjust the interval as needed)
+        // setInterval(() => {
+        //     this.fetchArticles();
+        // }, 5000);
         this.hideSkeletonLoader();
+        // this.fetchArticles(); // Fetch initial data
+
+        // // Start polling every 5 seconds (adjust the interval as needed)
+        // setInterval(() => {
+        //     this.fetchArticles();
+        // }, 5000);
     },
     async fetch() {
         this.articlesData = await fetch(

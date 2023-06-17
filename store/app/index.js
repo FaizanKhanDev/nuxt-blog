@@ -7,15 +7,19 @@ const state = () => ({
 });
 
 const mutations = {
-    init(state, articles) {
-        state.articles = articles
+    init(state, data) {
+        state.articles = data
     },
     add(state, initem) {
         state.articles = [...state.articles, initem]
     },
 
+    // deleted(state, data) {
+    //     state.articles = state.articles.find(article => article.id === data.id)
+    // },
     deleted(state, data) {
-        state.articles = state.articles.filter(t => t.id !== data.id)
+        state.articles = state.articles.filter(article => article.id !== data.id)
+
     },
 
     updateArticle(state, articleData) {
@@ -27,6 +31,29 @@ const mutations = {
 };
 
 const actions = {
+    async fetchArticles({ commit }) {
+        const response = await fetch("http://localhost:30001/articles", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const data = await response.json();
+        commit('init', data);
+        console.log(" ======== my articles Data ========", data)
+    },
+    // async view({ commit }) {
+    //     const response = await fetch("http://localhost:30001/articles", {
+    //         method: "GET",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //     })
+    //     const data = response.json()
+    //     commit('init', data)
+    //     console.log("=========data=====", data)
+    // },
     async add({ commit }, articleData) {
         try {
 
